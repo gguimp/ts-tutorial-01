@@ -28,7 +28,7 @@ const loggerOptions: expressWinston.LoggerOptions = {
 
 if (!process.env.DEBUG) {
     loggerOptions.meta = false;
-};
+}
 
 app.use(expressWinston.logger(loggerOptions));
 routes.push(new UsersRoutes(app));
@@ -44,4 +44,4 @@ server.listen(port, () => {
     });
 
     console.log(runningMessage);
-})
+});

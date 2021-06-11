@@ -1,4 +1,4 @@
-import { CommonRoutesConfig } from '../common/common.routes.config';
+import { CommonRoutesConfig } from "../common/common.routes.config";
 import express from 'express';
 
 export class UsersRoutes extends CommonRoutesConfig {
@@ -13,7 +13,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             })
             .post((req: express.Request, res: express.Response) => {
                 res.status(200).send('Post to users');
-            });
+            })
 
         this.app.route('/users/:userId')
             .all((req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -23,7 +23,7 @@ export class UsersRoutes extends CommonRoutesConfig {
                 res.status(200).send(`GET requested for id ${req.params.userId}`);
             })
             .put((req: express.Request, res: express.Response) => {
-                res.status(200).send(`PUT requested for id ${req.params.userId}`);
+                res.status(200).send(`PUT requested for id ${req.params.userId}`)
             })
             .patch((req: express.Request, res: express.Response) => {
                 res.status(200).send(`PATCH requested for id ${req.params.userId}`);
@@ -31,7 +31,7 @@ export class UsersRoutes extends CommonRoutesConfig {
             .delete((req: express.Request, res: express.Response) => {
                 res.status(200).send(`DELETE requested for id ${req.params.userId}`);
             })
-            
+
         return this.app;
     }
 }
