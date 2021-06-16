@@ -5,6 +5,7 @@ import mongooseService from '../../common/services/mongoose.service';
 
 import debug from 'debug';
 import shortid from 'shortid';
+import { PermissionFlag } from '../../common/middleware/common.permissionflag.enum';
 
 const log: debug.IDebugger = debug('app:in-memory-dao');
 
@@ -34,7 +35,7 @@ class UsersDao {
             firstName: userFields.firstName,
             lastName: userFields.lastName,
             password: userFields.password,
-            permissionFlags: 1,
+            permissionFlags: PermissionFlag.FREE_PERMISSION,
         });
 
         await user.save();
