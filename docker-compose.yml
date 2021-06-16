@@ -6,3 +6,7 @@ services:
             - ./data:/data/db
         ports: 
             - "27017:27017"
+    tstutorial:
+        image: tstutorial01:v1
+        ports: 
+            - "3000:3000"

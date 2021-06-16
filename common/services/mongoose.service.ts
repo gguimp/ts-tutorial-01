@@ -3,6 +3,9 @@ import debug from 'debug';
 
 const log: debug.IDebugger = debug('app:mongoose-service');
 
+// @ts-expect-error
+const mongourl: string = process.env.MONGO_URL;
+
 class MongooseService {
     private count = 0;
     private mongooseOptions = {
@@ -23,7 +26,7 @@ class MongooseService {
     connectWithRetry = () => {
         log('Attempting MongoDB connection (will retry if needed');
         mongoose
-            .connect('mongodb://localhost:27017/api-db', this.mongooseOptions)
+            .connect(mongourl, this.mongooseOptions)
             .then(() => {
                 log('MongoDB is connected');
             })
